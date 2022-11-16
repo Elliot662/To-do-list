@@ -16,7 +16,7 @@ const App = () => {
   const completed = (index) => {
     let arr = [...lists]
     let update = arr[index]
-    update.finished = true
+    update.finished = !update.finished
     setLists(arr)
   }
 
