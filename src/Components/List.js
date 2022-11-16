@@ -6,10 +6,10 @@ const Wrapper = styled.div`
 
 const List = (props) => {
     return(
-        <Wrapper>
+        <Wrapper finished={props.finished}>
             <h2>{props.item}</h2>
             <button onClick={props.removeHandler}>Delete</button>
-            <button onClick={props.finished}>Completed</button>
+            <button onClick={props.completed}>Completed</button>
         </Wrapper>
     )
 }

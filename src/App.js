@@ -13,11 +13,16 @@ const App = () => {
     setLists(newArr)
   }
 
-  const finished = false
+  const completed = (index) => {
+    let arr = [...lists]
+    let update = arr[index]
+    update.finished = true
+    setLists(arr)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setLists([...lists, { item: itemInput}])
+    setLists([...lists, { item: itemInput, finished: false}])
     setItemInput("")
   }
 
@@ -34,7 +39,8 @@ const App = () => {
         return <List 
         key={index}
         removeHandler={() => removeHandler(index)} 
-        finished={() => finished(!finished)}
+        finished={list.finished}
+        completed={() => completed(index)}
         item={list.item} />
       })}
 
